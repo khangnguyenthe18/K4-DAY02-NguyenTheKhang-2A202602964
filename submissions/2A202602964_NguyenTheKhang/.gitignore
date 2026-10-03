@@ -1,0 +1,9 @@
+data/
+work/
+**/data/
+**/work/
+*.pt
+*.pth
+*.npy
+*.zip
+__pycache__/
