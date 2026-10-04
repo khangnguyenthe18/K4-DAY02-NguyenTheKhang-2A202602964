@@ -1,0 +1,52 @@
+{
+  "config": {
+    "exp_id": "B08",
+    "backbone": "vit_small_patch14_dinov2.lvd142m",
+    "desc": "dinov2_probe",
+    "seed": 0,
+    "epochs": 30,
+    "batch_size": 64,
+    "img_size": 224,
+    "lr_backbone": 0.0001,
+    "lr_head": 0.001,
+    "weight_decay": 0.0001,
+    "loss": "ce",
+    "aug": "basic",
+    "mix": null,
+    "sampler": "random",
+    "ema_decay": null,
+    "amp": true,
+    "channels_last": false,
+    "keep_ckpt": false,
+    "bench_latency": true,
+    "probe": "linear"
+  },
+  "env": {
+    "python": "3.10.12",
+    "torch": "2.1.2+cu121",
+    "torchvision": "0.16.2+cu121",
+    "timm": "0.9.16",
+    "cuda": "12.1",
+    "gpu": "Tesla T4"
+  },
+  "weight_tag": "dinov2_vits14",
+  "data_config": {
+    "input_size": [
+      3,
+      224,
+      224
+    ],
+    "interpolation": "bicubic",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "crop_pct": 0.875
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "backbone": {
+    "backbone": "resnet50",
+    "exp_id": "B01",
+    "reason": "macro-F1 val cao nhất là convnext_tiny (0.9078). Nhóm không phân biệt được (cách <= 0.005): convnext_tiny (0.9078, p50 16.8 ms), swin_tiny_patch4_window7_224 (0.9062, p50 18.5 ms), resnext50_32x4d (0.9054, p50 14.6 ms), resnet50 (0.9031, p50 11.2 ms). Chọn resnet50 vì độ trễ thấp nhất trong nhóm (11.2 ms)."
+  },
+  "noise": {
+    "T00_val_f1": [
+      0.9031,
+      0.9015,
+      0.9056
+    ],
+    "mean": 0.9034,
+    "std": 0.0020663978319771753
+  },
+  "combos": {
+    "T15": {
+      "diff": {
+        "mix": "cutmix",
+        "mix_alpha": 1.0,
+        "loss": "ls",
+        "label_smoothing": 0.1,
+        "ema_decay": 0.998,
+        "epochs": 20
+      },
+      "from": [
+        "T05",
+        "T07",
+        "T12",
+        "T14"
+      ],
+      "desc": "combo_strict",
+      "rule": "Δ > std (0.0021)"
+    },
+    "T16": {
+      "diff": {
+        "aug": "color",
+        "mix": "cutmix",
+        "mix_alpha": 1.0,
+        "loss": "ls",
+        "label_smoothing": 0.1,
+        "ema_decay": 0.998,
+        "img_size": 256,
+        "epochs": 20
+      },
+      "from": [
+        "T03",
+        "T05",
+        "T07",
+        "T12",
+        "T13",
+        "T14"
+      ],
+      "desc": "combo_all_pos",
+      "rule": "Δ > 0"
+    }
+  },
+  "recipe": {
+    "exp_id": "T15",
+    "config": {
+      "exp_id": "T15",
+      "backbone": "resnet50",
+      "desc": "combo_strict",
+      "seed": 0,
+      "epochs": 20,
+      "batch_size": 64,
+      "img_size": 224,
+      "lr_backbone": 0.0001,
+      "lr_head": 0.001,
+      "weight_decay": 0.05,
+      "loss": "ls",
+      "label_smoothing": 0.1,
+      "aug": "basic",
+      "mix": "cutmix",
+      "mix_alpha": 1.0,
+      "sampler": "random",
+      "ema_decay": 0.998,
+      "amp": true,
+      "channels_last": false
+    },
+    "diff": {
+      "mix": "cutmix",
+      "mix_alpha": 1.0,
+      "loss": "ls",
+      "label_smoothing": 0.1,
+      "ema_decay": 0.998,
+      "epochs": 20
+    },
+    "diff_str": "mix=cutmix, mix_alpha=1.0, loss=ls, label_smoothing=0.1, ema_decay=0.998, epochs=20",
+    "summary": "resnet50 + mix=cutmix, loss=ls, ema_decay=0.998, epochs=20",
+    "reason": "T15 (combo_strict) macro-F1 val 0.9412 > mean T00 0.9034 + std 0.0021"
+  },
+  "inference": {
+    "spec": {
+      "views": "hflip",
+      "space": "prob",
+      "img_size": 224,
+      "crop_pct": 0.875
+    },
+    "exp_id": "I01",
+    "temperature_scaling": true,
+    "reason": "macro-F1 val cao nhất trong nhóm thời gian thực (p95 <= 100 ms) là I01 (hflip@224/c0.875 [prob], F1 0.9524, p50 21.4 ms). Áp dụng temperature scaling (T khớp trên val của từng seed) để tối ưu ECE."
+  },
+  "test_done": {
+    "seeds": [
+      10,
+      11,
+      12
+    ],
+    "note": "test đã mở; không chỉnh cấu hình nữa"
+  }
+}

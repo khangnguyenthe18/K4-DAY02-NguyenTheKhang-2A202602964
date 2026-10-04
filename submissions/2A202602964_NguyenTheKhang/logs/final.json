@@ -1,0 +1,92 @@
+{
+  "spec": {
+    "views": "hflip",
+    "space": "prob",
+    "img_size": 224,
+    "crop_pct": 0.875
+  },
+  "realtime_spec": {
+    "views": "hflip",
+    "space": "prob",
+    "img_size": 224,
+    "crop_pct": 0.875
+  },
+  "realtime_latency": {
+    "config": "F01 hflip@224/c0.875 [prob]",
+    "gpu": "Tesla T4",
+    "dtype": "fp32",
+    "batch": 1,
+    "img_size": 224,
+    "fused_bn": false,
+    "k_views": 2,
+    "p50_ms": 21.4,
+    "p95_ms": 24.5,
+    "p99_ms": 27.2,
+    "mean_ms": 22.5,
+    "images_per_s": 46.7,
+    "n_iters": 200,
+    "warmup": 10,
+    "torch": "2.1.2+cu121",
+    "preprocessing_included": false
+  },
+  "final_latency": {
+    "config": "F01 hflip@224/c0.875 [prob]",
+    "gpu": "Tesla T4",
+    "dtype": "fp32",
+    "batch": 1,
+    "img_size": 224,
+    "fused_bn": false,
+    "k_views": 2,
+    "p50_ms": 21.4,
+    "p95_ms": 24.5,
+    "p99_ms": 27.2,
+    "mean_ms": 22.5,
+    "images_per_s": 46.7,
+    "n_iters": 200,
+    "warmup": 10,
+    "torch": "2.1.2+cu121",
+    "preprocessing_included": false
+  },
+  "runs": {
+    "final": [
+      {
+        "seed": 10,
+        "T": 0.86,
+        "run": "F01/seed10",
+        "spec": "hflip@224/c0.875 [prob]"
+      },
+      {
+        "seed": 11,
+        "T": 0.87,
+        "run": "F01/seed11",
+        "spec": "hflip@224/c0.875 [prob]"
+      },
+      {
+        "seed": 12,
+        "T": 0.85,
+        "run": "F01/seed12",
+        "spec": "hflip@224/c0.875 [prob]"
+      }
+    ],
+    "baseline": [
+      {
+        "seed": 0,
+        "T": 1.0,
+        "run": "T00/seed0",
+        "spec": "single@224/c0.875"
+      },
+      {
+        "seed": 1,
+        "T": 1.0,
+        "run": "T00/seed1",
+        "spec": "single@224/c0.875"
+      },
+      {
+        "seed": 2,
+        "T": 1.0,
+        "run": "T00/seed2",
+        "spec": "single@224/c0.875"
+      }
+    ]
+  }
+}

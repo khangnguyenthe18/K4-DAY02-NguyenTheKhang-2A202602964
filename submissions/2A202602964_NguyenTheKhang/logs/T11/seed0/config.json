@@ -1,0 +1,51 @@
+{
+  "config": {
+    "exp_id": "T11",
+    "backbone": "resnet50",
+    "desc": "samelr",
+    "seed": 0,
+    "epochs": 12,
+    "batch_size": 64,
+    "img_size": 224,
+    "lr_backbone": 0.0001,
+    "lr_head": 0.0001,
+    "weight_decay": 0.05,
+    "loss": "ce",
+    "aug": "basic",
+    "mix": null,
+    "sampler": "random",
+    "ema_decay": null,
+    "amp": true,
+    "channels_last": false,
+    "keep_ckpt": false,
+    "bench_latency": true
+  },
+  "env": {
+    "python": "3.10.12",
+    "torch": "2.1.2+cu121",
+    "torchvision": "0.16.2+cu121",
+    "timm": "0.9.16",
+    "cuda": "12.1",
+    "gpu": "Tesla T4"
+  },
+  "weight_tag": "resnet50.a1_in1k",
+  "data_config": {
+    "input_size": [
+      3,
+      224,
+      224
+    ],
+    "interpolation": "bicubic",
+    "mean": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "std": [
+      0.229,
+      0.224,
+      0.225
+    ],
+    "crop_pct": 0.875
+  }
+}
