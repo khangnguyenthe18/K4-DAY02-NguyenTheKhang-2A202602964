@@ -17,7 +17,7 @@ from experiments import BACKBONE_TIE, FINAL_SEEDS, T00_SEEDS, Paths, load_decisi
 from make_results import (_j, all_runs, failed_runs, sheet_backbones, sheet_final, sheet_inference,
                           sheet_training)
 
-NOTEBOOK_URL = "https://colab.research.google.com/github/khangnguyenthe18/K4-DAY02-NguyenTheKhang-2A202602964/blob/main/submissions/2A202602964_NguyenTheKhang/code/lab_day2.ipynb"
+NOTEBOOK_URL = "https://colab.research.google.com/github/khangnguyenthe18/K4-Track4-Day2-Deeplearning-Advance/blob/main/submissions/2A202602964_NguyenTheKhang/code/lab_day2.ipynb"
 
 
 def md_table(df: pd.DataFrame, cols: list[str] | None = None, digits: int = 4) -> str:
