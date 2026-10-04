@@ -4,7 +4,7 @@ Bài nộp cho Lab Day 2 (backbone, công thức huấn luyện, suy luận trê
 
 | Sản phẩm | Vị trí |
 |---|---|
-| Notebook chạy lại (Colab, GPU T4) | [code/lab_day2.ipynb](code/lab_day2.ipynb) · [Mở trên Colab](https://colab.research.google.com/github/khangnguyenthe18/K4-DAY02-NguyenTheKhang-2A202602964/blob/main/submissions/2A202602964_NguyenTheKhang/code/lab_day2.ipynb) |
+| Notebook chạy lại (Colab, GPU T4) | [code/lab_day2.ipynb](code/lab_day2.ipynb) · [Mở trên Colab](https://colab.research.google.com/github/khangnguyenthe18/K4-Track4-Day2-Deeplearning-Advance/blob/main/submissions/2A202602964_NguyenTheKhang/code/lab_day2.ipynb) |
 | Bảng so sánh | `results.xlsx` (Summary, Backbones, Training, Inference, Final, PerClass, Latency, Sanity) |
 | Báo cáo | `report.md` |
 | Biểu đồ training (mỗi `exp_id` một ảnh) | `curves/<exp_id>_<mota>.png` |
